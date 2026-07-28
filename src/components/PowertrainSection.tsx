@@ -47,6 +47,28 @@ export const PowertrainSection: React.FC = () => {
     { metric: 'NOx Emissions', unit: 'g / cycle', base: '0.1', opt: '0.2', diff: '+0.1 g (Lean Trade-off)', highlight: false },
   ];
 
+
+  const workflowImages = [
+    {
+      src: '/assets/portfolio/powertrain-gt-model.webp',
+      title: 'GT-SUITE Vehicle Model',
+      caption: 'Integrated vehicle, powertrain, transmission, tyre and road-load model used for the system-level simulation.',
+      stage: '01',
+    },
+    {
+      src: '/assets/portfolio/powertrain-route-map.webp',
+      title: 'Sharjah GPS Route',
+      caption: 'Real-world 17.3 km urban route used to define the custom transient drive cycle.',
+      stage: '02',
+    },
+    {
+      src: '/assets/portfolio/powertrain-drive-cycle.webp',
+      title: 'Speed–Time Drive Cycle',
+      caption: 'The GPS-derived vehicle-speed trace applied in GT-Drive for shift-strategy and fuel-consumption analysis.',
+      stage: '03',
+    },
+  ];
+
   return (
     <section id="ev-powertrain" className="py-24 bg-[#111318] text-white relative overflow-hidden">
       {/* Background Subtle Accent */}
@@ -139,6 +161,51 @@ export const PowertrainSection: React.FC = () => {
             </div>
           </div>
 
+          {/* Visual Simulation Workflow: model → route → drive cycle */}
+          <div className="gsap-powertrain-card bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+              <div>
+                <span className="text-xs font-mono font-bold text-[#1677FF]">SIMULATION WORKFLOW</span>
+                <h3 className="text-xl sm:text-2xl font-bold font-display text-white mt-1">
+                  GT-SUITE Model → GPS Route → Drive Cycle
+                </h3>
+              </div>
+              <span className="text-xs font-mono text-[#727982]">CLICK ANY IMAGE TO EXPAND</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {workflowImages.map((image) => (
+                <button
+                  key={image.stage}
+                  type="button"
+                  onClick={() => setActiveModal({
+                    src: image.src,
+                    title: image.title,
+                    caption: image.caption,
+                  })}
+                  className="relative text-left bg-white rounded-xl overflow-hidden border border-white/20 hover:border-[#1677FF] focus:outline-none focus:ring-2 focus:ring-[#1677FF] group transition-all shadow-xs"
+                >
+                  <div className="aspect-[16/10] p-2 flex items-center justify-center bg-white overflow-hidden">
+                    <img
+                      src={image.src}
+                      alt={image.title}
+                      className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between gap-3 px-3.5 py-3 bg-[#171A20] border-t border-white/10">
+                    <div>
+                      <span className="text-[10px] font-mono text-[#1677FF]">STEP {image.stage}</span>
+                      <p className="text-sm font-bold text-white mt-0.5">{image.title}</p>
+                    </div>
+                    <span className="p-1.5 bg-[#1677FF] rounded-md text-white shrink-0">
+                      <ZoomIn className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Both Pillars Side-by-Side View */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
@@ -159,25 +226,6 @@ export const PowertrainSection: React.FC = () => {
                 <p className="text-sm text-slate-300 leading-relaxed font-sans border-l-2 border-[#1677FF] pl-3 py-1">
                   Modeled Toyota Prius parallel hybrid architecture comprising ICE, EM1 (generator/starter), EM2 (primary traction motor), BMS, planetary power-split device (PSD), and a 13-mode Finite State Machine (FSM) supervisory controller.
                 </p>
-              </div>
-
-              {/* Model Architecture Image */}
-              <div
-                onClick={() => setActiveModal({
-                  src: '/assets/portfolio/powertrain-model.webp',
-                  title: 'GT-SUITE Hybrid Powertrain System Architecture',
-                  caption: 'Full powertrain mechanical and electrical connectivity layout with ICE, EM1, EM2, Battery, Planetary Power-Split Device, and Supervisory Controller.'
-                })}
-                className="relative bg-white rounded-xl p-3 border border-white/20 hover:border-[#1677FF] cursor-pointer group h-64 sm:h-72 flex items-center justify-center overflow-hidden shadow-xs transition-all"
-              >
-                <img
-                  src="/assets/portfolio/powertrain-model.webp"
-                  alt="GT-SUITE Hybrid Powertrain Model Architecture"
-                  className="max-h-full max-w-full object-contain group-hover:scale-103 transition-transform duration-500"
-                />
-                <div className="absolute bottom-3 right-3 p-2 bg-[#1677FF] rounded-lg text-white shadow-xs">
-                  <ZoomIn className="w-4 h-4" />
-                </div>
               </div>
 
               <div className="space-y-2 text-xs font-mono text-slate-300 bg-white/5 p-4 rounded-xl border border-white/5">
@@ -220,44 +268,6 @@ export const PowertrainSection: React.FC = () => {
                 <p className="text-sm text-slate-300 leading-relaxed font-sans border-l-2 border-[#1677FF] pl-3 py-1">
                   Synthesized a 17.3 km real-world GPS speed-time drive cycle in Sharjah (UAE) and optimized the 5-speed transmission shift schedule (advancing up-shifts to 20, 34, 52, 74 km/h) to lower engine speeds and reduce fuel consumption.
                 </p>
-              </div>
-
-              {/* Clean Cropped Drive Cycle Plot Image */}
-              <div
-                onClick={() => setActiveModal({
-                  src: '/assets/portfolio/powertrain-drive-cycle.webp',
-                  title: 'Sharjah Route Speed-Time Drive Cycle Trace (17.3 km)',
-                  caption: 'Transient vehicle speed profile over 17.3 km route in GT-Drive synthesized from GPS-logged real-world driving data.'
-                })}
-                className="relative bg-white rounded-xl p-3 border border-white/20 hover:border-[#1677FF] cursor-pointer group h-64 sm:h-72 flex items-center justify-center overflow-hidden shadow-xs transition-all"
-              >
-                <img
-                  src="/assets/portfolio/powertrain-drive-cycle.webp"
-                  alt="Sharjah Route Speed-Time Drive Cycle Trace"
-                  className="max-h-full max-w-full object-contain group-hover:scale-103 transition-transform duration-500"
-                />
-
-                {/* Animated Vehicle Route Overlay */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-[#1677FF] bg-[#111318]/90 backdrop-blur-xs px-2.5 py-1 rounded border border-white/10 pointer-events-none">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#1677FF] animate-ping" />
-                    <span>TRANSIENT ROUTE SIMULATION</span>
-                  </div>
-                  <span className="text-white">SHARJAH: 17.3 KM</span>
-                </div>
-
-                {/* Moving Pulse Animation along Axis */}
-                <div className="absolute bottom-8 left-6 right-6 h-0.5 bg-[#1677FF]/30 pointer-events-none overflow-hidden">
-                  <motion.div
-                    animate={{ x: ['0%', '100%'] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-                    className="w-12 h-0.5 bg-[#1677FF] shadow-[0_0_8px_#1677FF]"
-                  />
-                </div>
-
-                <div className="absolute bottom-3 right-3 p-2 bg-[#1677FF] rounded-lg text-white shadow-xs">
-                  <ZoomIn className="w-4 h-4" />
-                </div>
               </div>
 
               <div className="space-y-2 text-xs font-mono text-slate-300 bg-white/5 p-4 rounded-xl border border-white/5">
