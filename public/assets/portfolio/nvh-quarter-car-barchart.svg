@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#ffffff; font-family: Arial, sans-serif;">
+  <!-- Title & Subtitle -->
+  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#000000">Parametric Study of the 3-DOF Quarter-Car Model</text>
+  <text x="400" y="55" text-anchor="middle" font-size="17" font-weight="bold" fill="#000000">Effect of Suspension Parameters on Ride Comfort</text>
+
+  <!-- Y Axis Label -->
+  <text x="25" y="240" text-anchor="middle" font-size="16" font-weight="bold" fill="#000000" transform="rotate(-90 25 240)">Ride Comfort Index</text>
+
+  <!-- Main Axes -->
+  <line x1="80" y1="420" x2="760" y2="420" stroke="#000000" stroke-width="1.5"/>
+  <line x1="80" y1="80" x2="80" y2="420" stroke="#000000" stroke-width="1.5"/>
+
+  <!-- Y Ticks and Grid Lines -->
+  <!-- Y=0 -->
+  <text x="70" y="425" text-anchor="end" font-size="14" fill="#000000">0</text>
+  <!-- Y=2 -->
+  <line x1="80" y1="371.4" x2="760" y2="371.4" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="70" y="376.4" text-anchor="end" font-size="14" fill="#000000">2</text>
+  <!-- Y=4 -->
+  <line x1="80" y1="322.8" x2="760" y2="322.8" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="70" y="327.8" text-anchor="end" font-size="14" fill="#000000">4</text>
+  <!-- Y=6 -->
+  <line x1="80" y1="274.3" x2="760" y2="274.3" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="70" y="279.3" text-anchor="end" font-size="14" fill="#000000">6</text>
+  <!-- Y=8 -->
+  <line x1="80" y1="225.7" x2="760" y2="225.7" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="70" y="230.7" text-anchor="end" font-size="14" fill="#000000">8</text>
+  <!-- Y=10 -->
+  <line x1="80" y1="177.1" x2="760" y2="177.1" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="70" y="182.1" text-anchor="end" font-size="14" fill="#000000">10</text>
+  <!-- Y=12 -->
+  <line x1="80" y1="128.5" x2="760" y2="128.5" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="70" y="133.5" text-anchor="end" font-size="14" fill="#000000">12</text>
+  <!-- Y=14 -->
+  <line x1="80" y1="80" x2="760" y2="80" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="70" y="85" text-anchor="end" font-size="14" fill="#000000">14</text>
+
+  <!-- Bars -->
+  <!-- Bar 1: Baseline (9.67) -->
+  <rect x="127.5" y="185.2" width="105" height="234.8" fill="#1565c0" stroke="#000000" stroke-width="1.2"/>
+  <text x="180" y="173" text-anchor="middle" font-size="15" font-weight="bold" fill="#000000">9.67</text>
+  <text x="180" y="300" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">Baseline</text>
+  <text x="180" y="442" text-anchor="middle" font-size="15" fill="#000000">Baseline</text>
+
+  <!-- Bar 2: Increased load (11.01) -->
+  <rect x="287.5" y="152.6" width="105" height="267.4" fill="#1565c0" stroke="#000000" stroke-width="1.2"/>
+  <text x="340" y="140" text-anchor="middle" font-size="15" font-weight="bold" fill="#000000">11.01</text>
+  <text x="340" y="285" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">+13.9%</text>
+  <text x="340" y="442" text-anchor="middle" font-size="15" fill="#000000">Increased load</text>
+
+  <!-- Bar 3: Stiffer suspension (12.15) -->
+  <rect x="447.5" y="124.9" width="105" height="295.1" fill="#1565c0" stroke="#000000" stroke-width="1.2"/>
+  <text x="500" y="112" text-anchor="middle" font-size="15" font-weight="bold" fill="#000000">12.15</text>
+  <text x="500" y="270" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">+25.7%</text>
+  <text x="500" y="442" text-anchor="middle" font-size="15" fill="#000000">Stiffer suspension</text>
+
+  <!-- Bar 4: Higher damping (10.10) -->
+  <rect x="607.5" y="174.7" width="105" height="245.3" fill="#1565c0" stroke="#000000" stroke-width="1.2"/>
+  <text x="660" y="162" text-anchor="middle" font-size="15" font-weight="bold" fill="#000000">10.10</text>
+  <text x="660" y="295" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">+4.5%</text>
+  <text x="660" y="442" text-anchor="middle" font-size="15" fill="#000000">Higher damping</text>
+
+  <!-- Bottom Note -->
+  <text x="400" y="480" text-anchor="middle" font-size="13" font-style="italic" fill="#333333">Higher ride comfort index indicates greater occupant discomfort.</text>
+</svg>

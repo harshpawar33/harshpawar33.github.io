@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#111318; font-family: monospace;">
+  <!-- Fixed Wall Support -->
+  <pattern id="hatch" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+    <line x1="0" y1="0" x2="0" y2="10" stroke="#727982" stroke-width="2" />
+  </pattern>
+  <rect x="80" y="100" width="30" height="300" fill="url(#hatch)" stroke="#1677FF" stroke-width="2" />
+  <line x1="110" y1="100" x2="110" y2="400" stroke="#1677FF" stroke-width="4" />
+
+  <!-- Cantilever Beam -->
+  <rect x="110" y="235" width="560" height="30" fill="#1677FF" fill-opacity="0.2" stroke="#1677FF" stroke-width="3" rx="4" />
+  
+  <!-- Neutral Axis Line -->
+  <line x1="110" y1="250" x2="670" y2="250" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="6,4" />
+
+  <!-- Fixed Wall Text -->
+  <text x="95" y="430" text-anchor="middle" font-size="13" fill="#727982">Clamped Boundary (x=0)</text>
+
+  <!-- Tuned Mass Absorber 1 -->
+  <g transform="translate(420, 265)">
+    <!-- Spring 1 -->
+    <path d="M 0 0 L 0 10 L -8 15 L 8 23 L -8 31 L 8 39 L -8 47 L 0 52 L 0 62" fill="none" stroke="#ffffff" stroke-width="2.5" />
+    <!-- Damper 1 -->
+    <rect x="-18" y="62" width="36" height="30" fill="#111318" stroke="#1677FF" stroke-width="2" rx="3" />
+    <text x="0" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">M₁</text>
+  </g>
+
+  <!-- Tuned Mass Absorber 2 -->
+  <g transform="translate(620, 265)">
+    <!-- Spring 2 -->
+    <path d="M 0 0 L 0 10 L -8 15 L 8 23 L -8 31 L 8 39 L -8 47 L 0 52 L 0 62" fill="none" stroke="#ffffff" stroke-width="2.5" />
+    <!-- Damper 2 -->
+    <rect x="-18" y="62" width="36" height="30" fill="#111318" stroke="#1677FF" stroke-width="2" rx="3" />
+    <text x="0" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">M₂</text>
+  </g>
+
+  <!-- Excitation Force Arrow at Tip -->
+  <path d="M 670 150 L 670 220" stroke="#00e5ff" stroke-width="3" />
+  <polygon points="665,220 670,232 675,220" fill="#00e5ff" />
+  <text x="670" y="138" text-anchor="middle" font-size="14" font-weight="bold" fill="#00e5ff">F(t) Harmonic Excitation</text>
+
+  <!-- Annotations -->
+  <text x="390" y="180" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Cantilever Beam Modal FEA Setup</text>
+  <text x="390" y="205" text-anchor="middle" font-size="14" fill="#1677FF">Dual Tuned Vibration Absorbers @ Target Mode 87.64 Hz</text>
+</svg>
